@@ -1,0 +1,527 @@
+{
+  "__inputs": [
+    {
+      "name": "DS_TEST_DISCOURSE",
+      "label": "Test Discourse",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "grafana-discourse-datasource",
+      "pluginName": "Discourse Datasource"
+    }
+  ],
+  "__elements": [],
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "9.0.1"
+    },
+    {
+      "type": "datasource",
+      "id": "grafana-discourse-datasource",
+      "name": "Discourse Datasource",
+      "version": "2.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "table",
+      "name": "Table",
+      "version": ""
+    }
+  ],
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": null,
+  "iteration": 1656007865833,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "grafana-discourse-datasource",
+        "uid": "${DS_TEST_DISCOURSE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "title"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 438
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 54
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "fancy_title"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 526
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.0.1",
+      "targets": [
+        {
+          "category": "All categories",
+          "datasource": {
+            "type": "grafana-discourse-datasource",
+            "uid": "${DS_TEST_DISCOURSE}"
+          },
+          "getPaginated": false,
+          "period": "monthly",
+          "queryType": "search",
+          "refId": "A",
+          "reportName": "topics_with_no_response.json",
+          "searchArea": "topics_posts",
+          "searchAuthor": "",
+          "searchCategory": "$category",
+          "searchDate": "2022-4-30",
+          "searchPosted": "after",
+          "searchQuery": "$search",
+          "searchSort": "$sort",
+          "searchStatus": "",
+          "searchTag": "",
+          "tag": "",
+          "tagQuery": "",
+          "userQuery": "topPublicUsers"
+        }
+      ],
+      "title": "\"$category\" category | all topics | sorted by $sort",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "archetype": true,
+              "archived": true,
+              "bookmarked": true,
+              "bumped": true,
+              "bumped_at": true,
+              "category_id": true,
+              "closed": true,
+              "highest_post_number": true,
+              "liked": true,
+              "pinned": true,
+              "reply_count": true,
+              "slug": true,
+              "tags": true,
+              "tags_descriptions": true,
+              "title": true,
+              "unpinned": true,
+              "unseen": true,
+              "visible": true
+            },
+            "indexByName": {
+              "archetype": 12,
+              "archived": 18,
+              "bookmarked": 19,
+              "bumped": 10,
+              "bumped_at": 11,
+              "category_id": 23,
+              "closed": 17,
+              "created_at": 8,
+              "fancy_title": 2,
+              "has_accepted_answer": 5,
+              "highest_post_number": 7,
+              "id": 0,
+              "last_posted_at": 9,
+              "liked": 20,
+              "pinned": 14,
+              "posts_count": 4,
+              "reply_count": 6,
+              "slug": 3,
+              "tags": 21,
+              "tags_descriptions": 22,
+              "title": 1,
+              "unpinned": 15,
+              "unseen": 13,
+              "visible": 16
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "grafana-discourse-datasource",
+        "uid": "${DS_TEST_DISCOURSE}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "title"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 438
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "id"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 54
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "fancy_title"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 526
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 12,
+        "w": 12,
+        "x": 12,
+        "y": 0
+      },
+      "id": 4,
+      "options": {
+        "footer": {
+          "enablePagination": true,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.0.1",
+      "targets": [
+        {
+          "category": "All categories",
+          "datasource": {
+            "type": "grafana-discourse-datasource",
+            "uid": "${DS_TEST_DISCOURSE}"
+          },
+          "getPaginated": false,
+          "period": "monthly",
+          "queryType": "search",
+          "refId": "A",
+          "reportName": "topics_with_no_response.json",
+          "searchArea": "topics_posts",
+          "searchAuthor": "",
+          "searchCategory": "$category",
+          "searchDate": "2022-4-30",
+          "searchPosted": "after",
+          "searchQuery": "$search",
+          "searchSort": "$sort",
+          "searchStatus": "noreplies",
+          "searchTag": "",
+          "tag": "",
+          "tagQuery": "",
+          "userQuery": "topPublicUsers"
+        }
+      ],
+      "title": "\"$category\" category | topic with NO REPLIES | sorted by $sort",
+      "transformations": [
+        {
+          "id": "organize",
+          "options": {
+            "excludeByName": {
+              "archetype": true,
+              "archived": true,
+              "bookmarked": true,
+              "bumped": true,
+              "bumped_at": true,
+              "category_id": true,
+              "closed": true,
+              "highest_post_number": true,
+              "liked": true,
+              "pinned": true,
+              "reply_count": true,
+              "slug": true,
+              "tags": true,
+              "tags_descriptions": true,
+              "title": true,
+              "unpinned": true,
+              "unseen": true,
+              "visible": true
+            },
+            "indexByName": {
+              "archetype": 12,
+              "archived": 18,
+              "bookmarked": 19,
+              "bumped": 10,
+              "bumped_at": 11,
+              "category_id": 23,
+              "closed": 17,
+              "created_at": 8,
+              "fancy_title": 2,
+              "has_accepted_answer": 5,
+              "highest_post_number": 7,
+              "id": 0,
+              "last_posted_at": 9,
+              "liked": 20,
+              "pinned": 14,
+              "posts_count": 4,
+              "reply_count": 6,
+              "slug": 3,
+              "tags": 21,
+              "tags_descriptions": 22,
+              "title": 1,
+              "unpinned": 15,
+              "unseen": 13,
+              "visible": 16
+            },
+            "renameByName": {}
+          }
+        }
+      ],
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": "",
+          "value": ""
+        },
+        "hide": 0,
+        "label": "Search For:",
+        "name": "search",
+        "options": [
+          {
+            "selected": true,
+            "text": "",
+            "value": ""
+          }
+        ],
+        "query": "",
+        "skipUrlSync": false,
+        "type": "textbox"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "Authentication",
+          "value": "auth"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Category",
+        "multi": false,
+        "name": "category",
+        "options": [
+          {
+            "selected": false,
+            "text": "Configuration",
+            "value": "configuration"
+          },
+          {
+            "selected": false,
+            "text": "Alerting",
+            "value": "alerting"
+          },
+          {
+            "selected": true,
+            "text": "Authentication",
+            "value": "auth"
+          }
+        ],
+        "query": "Configuration : configuration, Alerting : alerting, Authentication : auth",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      },
+      {
+        "current": {
+          "selected": true,
+          "text": "Most Viewed",
+          "value": "views"
+        },
+        "hide": 0,
+        "includeAll": false,
+        "label": "Sort By",
+        "multi": false,
+        "name": "sort",
+        "options": [
+          {
+            "selected": false,
+            "text": "Most Votes",
+            "value": "votes"
+          },
+          {
+            "selected": true,
+            "text": "Most Viewed",
+            "value": "views"
+          },
+          {
+            "selected": false,
+            "text": "Most Liked",
+            "value": "likes"
+          },
+          {
+            "selected": false,
+            "text": "Latest",
+            "value": "latest"
+          },
+          {
+            "selected": false,
+            "text": "Latest Topic",
+            "value": "latest_topic"
+          },
+          {
+            "selected": false,
+            "text": "Relevance",
+            "value": "Relevance"
+          }
+        ],
+        "query": "Most Votes : votes, Most Viewed : views, Most Liked : likes, Latest : latest, Latest Topic : latest_topic, Relevance",
+        "queryValue": "",
+        "skipUrlSync": false,
+        "type": "custom"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Grafana Forum Search | Current Quarter | 22Q2",
+  "uid": "psFkcPb7z",
+  "version": 2,
+  "weekStart": ""
+}

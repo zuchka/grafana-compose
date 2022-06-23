@@ -1,0 +1,21 @@
+version: "3"
+services:
+  grafana:
+    image: grafana/grafana:9.0.1
+    ports:
+      - 3001:3000
+    volumes:
+      # - grafana-data:/var/lib/grafana
+      - ./provisioning:/etc/grafana/provisioning
+      # - ~/code/grafana-plugins:/var/lib/grafana/plugins
+    environment:
+      GF_LOG_LEVEL: debug 
+      GF_LOG.CONSOLE_LEVEL: debug 
+      GF_AUTH_ANONYMOUS_ENABLED: 1
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+      GF_PLUGINS_ALLOW_LOADING_UNSIGNED_PLUGINS: grafana-discourse-datasource 
+      GF_INSTALL_PLUGINS: https://github.com/grafana/discourse-datasource/releases/download/v2.0.1/grafana-discourse-datasource-2.0.1.zip;grafana-discourse-datasource
+# Explicitly define the persistent volume for your data storage
+# volumes:
+#   grafana-data:
+#     external: true
